@@ -68,6 +68,41 @@ $data = new TesDTO([
 
 $data->toArray(); // ['name' => 'Valery', 'age' => '23'];
 ```
+
+## Custom DTO
+### Custom property
+```php
+use vakazona\Dto\DTO;
+
+class CustomPropertyDTO extends DTO
+{
+    public string $name;
+
+    public int $age;
+
+}
+```
+### Main property
+```php
+use vakazona\Dto\DTO;
+
+class TestCustomDTO extends DTO
+{
+    public CustomPropertyDTO $customProperty;
+}
+
+```
+### Usage
+```php
+$data = new TestCustomDTO([
+            'customProperty' => new CustomPropertyDTO([
+                'name' => 'Valera',
+                'age' => 23
+            ])
+        ]);
+
+```
+
 ## Tests
 ```
 vendor/bin/phpunit
