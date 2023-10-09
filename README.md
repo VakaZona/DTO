@@ -23,9 +23,9 @@ class TestDTO extends DTO
 }
 
 $data = new TestDTO([
-    'name' => Valery,
+    'name' => 'Valery',
     'age' => 23,
-])
+]);
 
 $data->name; // Valery
 $data->age; // 23
