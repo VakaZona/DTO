@@ -5,12 +5,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Vakazona\\Dto\\": "src/"
+            "vakazona\\Dto\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Vakazona\\Dto\\tests\\": "tests/"
+            "vakazona\\Dto\\Tests\\": "tests/"
         }
     },
     "authors": [

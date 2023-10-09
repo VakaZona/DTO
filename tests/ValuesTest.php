@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Tests\dto;
+namespace vakazona\Dto\Tests;
 
-use App\dto\DTO;
-use App\dto\Exceptions\InvalidDataException;
-use App\Tests\dto\Support\SimpleData;
-use App\Tests\dto\Support\SimpleDataNullable;
-use App\Tests\dto\Support\SimpleDataNullableDefaultNull;
-use App\Tests\dto\Support\SimpleDataNullableRequired;
-use App\Tests\dto\Support\SimpleDataRequired;
-use App\Tests\dto\Support\SimpleDataType;
-use App\Tests\dto\Support\SimpleDataTypeRequired;
-use App\Tests\dto\Support\SimpleDataTypeUnion;
+use vakazona\Dto\DTO;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Tests\Support\SimpleData;
+use vakazona\Dto\Tests\Support\SimpleDataNullable;
+use vakazona\Dto\Tests\Support\SimpleDataNullableDefaultNull;
+use vakazona\Dto\Tests\Support\SimpleDataNullableRequired;
+use vakazona\Dto\Tests\Support\SimpleDataRequired;
+use vakazona\Dto\Tests\Support\SimpleDataType;
+use vakazona\Dto\Tests\Support\SimpleDataTypeRequired;
+use vakazona\Dto\Tests\Support\SimpleDataTypeUnion;
 
 class ValuesTest extends BaseTestCase
 {

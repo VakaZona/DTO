@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests\dto\Support;
+namespace vakazona\Dto\Tests\Support;
 
-use App\dto\DTO;
+use vakazona\Dto\DTO;
 
 class SimpleDataTypeUnion extends DTO
 {

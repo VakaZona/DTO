@@ -2,14 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\dto\Types;
+namespace vakazona\Dto\Types;
+
+use ReflectionNamedType;
 
 class NamedReflectedType implements Type
 {
     /**
      * Maps type names from \ReflectionNamedType to values matching gettype() output.
      *
-     * @see \ReflectionNamedType
+     * @see ReflectionNamedType
      */
     private const TYPES_MAPPING = [
         'bool' => 'boolean',
@@ -17,9 +19,9 @@ class NamedReflectedType implements Type
         'int' => 'integer',
     ];
 
-    private \ReflectionNamedType $type;
+    private ReflectionNamedType $type;
 
-    public function __construct(\ReflectionNamedType $type)
+    public function __construct(ReflectionNamedType $type)
     {
         $this->type = $type;
     }

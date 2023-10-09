@@ -2,15 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\dto;
+namespace vakazona\Dto;
 
-use App\dto\Attributes\Flexible;
-use App\dto\Exceptions\InvalidDataException;
-use App\dto\Exceptions\InvalidDeclarationException;
-use App\dto\Interfaces\DTOInterface;
-use App\dto\Values\MissingValue;
+use Closure;
+use JsonException as JsonExceptionAlias;
+use JsonSerializable;
+use ReflectionClass;
+use vakazona\Dto\Attributes\Flexible;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Exceptions\InvalidDeclarationException;
+use vakazona\Dto\Interfaces\DTOInterface;
+use vakazona\Dto\Values\MissingValue;
 
-abstract class DTO implements DTOInterface, \JsonSerializable
+abstract class DTO implements DTOInterface, JsonSerializable
 {
     /**
      * @param array<string, mixed> $data
@@ -76,7 +80,7 @@ abstract class DTO implements DTOInterface, \JsonSerializable
     public static function isFlexible(): bool
     {
         return ! empty(
-        (new \ReflectionClass(static::class))->getAttributes(Flexible::class)
+        (new ReflectionClass(static::class))->getAttributes(Flexible::class)
         );
     }
 
@@ -85,7 +89,7 @@ abstract class DTO implements DTOInterface, \JsonSerializable
      *
      * @param string $key
      *
-     * @return \App\dto\Property
+     * @return Property
      */
     private function getProperty(string $key): Property
     {
@@ -127,9 +131,9 @@ abstract class DTO implements DTOInterface, \JsonSerializable
     /**
      * Get a string of json formatted values.
      *
-     * @throws \JsonException
-     *
      * @return string
+     * @throws JsonExceptionAlias
+     *
      */
     public function toJson(): string
     {
@@ -149,18 +153,18 @@ abstract class DTO implements DTOInterface, \JsonSerializable
     /**
      * Iterate over instance values with a given callback applied to DTO instances.
      *
-     * @param \Closure $callback
+     * @param Closure $callback
      *
      * @return array<string, mixed>
      */
-    private function walkValuesDataCallback(\Closure $callback): array
+    private function walkValuesDataCallback(Closure $callback): array
     {
-        $serializeItem = static function ($value, \Closure $callback) {
+        $serializeItem = static function ($value, Closure $callback) {
             if ($value instanceof self) {
                 return $callback($value);
             }
 
-            if ($value instanceof \JsonSerializable) {
+            if ($value instanceof JsonSerializable) {
                 return $value->jsonSerialize();
             }
 

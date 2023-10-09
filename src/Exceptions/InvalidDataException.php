@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\dto\Exceptions;
+namespace vakazona\Dto\Exceptions;
 
-use App\dto\Property;
+use vakazona\Dto\Property;
 
 class InvalidDataException extends \InvalidArgumentException
 {
     /**
-     * @var \App\dto\Property[]
+     * @var Property[]
      */
     private array $properties = [];
 
     /**
-     * @param \App\dto\Property $property
+     * @param Property $property
      * @param mixed $value
      *
      * @return self
@@ -66,7 +66,7 @@ class InvalidDataException extends \InvalidArgumentException
     }
 
     /**
-     * @param \App\dto\Exceptions\InvalidDataException[] $exceptions
+     * @param \vakazona\Dto\Exceptions\InvalidDataException[] $exceptions
      *
      * @return self
      */

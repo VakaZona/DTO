@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\dto\Support;
+namespace vakazona\Dto\Tests\Support;
 
-use App\dto\Attributes\Flexible;
-use App\dto\DTO;
+use vakazona\Dto\Attributes\Flexible;
+use vakazona\Dto\DTO;
 
 #[Flexible]
 class FlexibleData extends DTO

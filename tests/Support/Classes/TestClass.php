@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\dto\Support\Classes;
+namespace vakazona\Dto\Tests\Support\Classes;
 
 class TestClass
 {

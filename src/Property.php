@@ -2,15 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\dto;
+namespace vakazona\Dto;
 
+use ReflectionClass;
 use ReflectionException;
-use App\dto\Exceptions\InvalidDataException;
-use App\dto\Values\MissingValue;
+use ReflectionNamedType;
+use ReflectionProperty;
+use ReflectionType;
+use ReflectionUnionType;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Values\MissingValue;
 
 final class Property
 {
-    private \ReflectionProperty $reflectionProperty;
+    private ReflectionProperty $reflectionProperty;
 
     private ?DTO $data;
 
@@ -27,11 +32,11 @@ final class Property
     private bool $hasDefaultValue;
 
     /**
-     * @var \App\dto\Types\Type[]
+     * @var Types\Type[]
      */
     public array $allowedTypes;
 
-    public function __construct(\ReflectionProperty $reflectionProperty, ?DTO $data = null)
+    public function __construct(ReflectionProperty $reflectionProperty, ?DTO $data = null)
     {
         $this->reflectionProperty = $reflectionProperty;
         $this->data = $data;
@@ -53,12 +58,12 @@ final class Property
     /**
      * Create new class instance.
      *
-     * @param \ReflectionProperty $reflectionProperty
-     * @param \App\dto\DTO $data
+     * @param ReflectionProperty $reflectionProperty
+     * @param DTO $data
      *
      * @return static
      */
-    public static function make(\ReflectionProperty $reflectionProperty, DTO $data): self
+    public static function make(ReflectionProperty $reflectionProperty, DTO $data): self
     {
         return new self($reflectionProperty, $data);
     }
@@ -67,21 +72,21 @@ final class Property
      * Collect all properties form a given class and optional instance.
      *
      * @param string $class
-     * @param \App\dto\DTO|null $data
+     * @param DTO|null $data
      *
-     * @return \App\dto\Property[]
+     * @return Property[]
      */
     public static function collect(string $class, ?DTO $data = null): array
     {
         $properties = [];
 
         try {
-            $reflectionClass = new \ReflectionClass($class);
+            $reflectionClass = new ReflectionClass($class);
         } catch (ReflectionException) {
             return $properties;
         }
 
-        foreach ($reflectionClass->getProperties(\ReflectionProperty::IS_PUBLIC) as $property) {
+        foreach ($reflectionClass->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
             if ($property->isStatic()) {
                 continue;
             }
@@ -96,19 +101,20 @@ final class Property
      * Create an instance from a given data instance and property key.
      *
      * @param string $key
-     * @param \App\dto\DTO $data
+     * @param DTO $data
      *
      * @return $this
+     * @throws ReflectionException
      */
     public static function fromKey(string $key, DTO $data): self
     {
-        return new self(new \ReflectionProperty($data, $key), $data);
+        return new self(new ReflectionProperty($data, $key), $data);
     }
 
     /**
-     * @param \App\dto\DTO $data
+     * @param DTO $data
      *
-     * @return \App\dto\Property[]
+     * @return Property[]
      */
     public static function collectFromInstance(DTO $data): array
     {
@@ -121,7 +127,7 @@ final class Property
     /**
      * @param string $class
      *
-     * @return \App\dto\Property[]
+     * @return Property[]
      */
     public static function collectFromClass(string $class): array
     {
@@ -145,7 +151,7 @@ final class Property
      *
      * @param mixed $value
      *
-     * @return \App\dto\Exceptions\InvalidDataException|null
+     * @return Exceptions\InvalidDataException|null
      */
     public function getError(mixed $value): ?InvalidDataException
     {
@@ -273,7 +279,7 @@ final class Property
      * Check if a property has been initialized with a value.
      * This also returns true if a property has been declared with a default value.
      *
-     * @param \app\dto\DTO $data
+     * @param DTO $data
      *
      * @return bool
      */
@@ -307,7 +313,7 @@ final class Property
     /**
      * Get all allowed types.
      *
-     * @return \App\dto\Types\Type[]
+     * @return Types\Type[]
      */
     private function checkAllowedTypes(): array
     {
@@ -315,19 +321,19 @@ final class Property
             return [];
         }
 
-        if ($type instanceof \ReflectionUnionType) {
+        if ($type instanceof ReflectionUnionType) {
             return [
                 new Types\UnionType($type),
             ];
         }
 
-        if ($type instanceof \ReflectionNamedType) {
+        if ($type instanceof ReflectionNamedType) {
             return [
                 new Types\NamedReflectedType($type),
             ];
         }
 
-        if ($type instanceof \ReflectionType && ! $type->allowsNull()) {
+        if ($type instanceof ReflectionType && ! $type->allowsNull()) {
             return [
                 new Types\NotNullType(),
             ];

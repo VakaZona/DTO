@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Tests\dto;
+namespace vakazona\Dto\Tests;
 
-use App\dto\DTO;
-use PHPUnit\Framework\TestCase;
+use vakazona\Dto\DTO;
 
 class ToJsonTest extends BaseTestCase
 {

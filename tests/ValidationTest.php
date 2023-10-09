@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Tests\dto;
+namespace vakazona\Dto\Tests;
 
-use App\dto\Attributes\Required;
-use App\dto\DTO;
-use App\dto\Exceptions\InvalidDataException;
-use App\dto\Exceptions\InvalidDeclarationException;
-use App\dto\Property;
-use App\dto\Values\MissingValue;
-use App\Tests\dto\Support\SimpleData;
-use App\Tests\dto\Support\SimpleDataNullable;
-use App\Tests\dto\Support\SimpleDataNullableDefaultNull;
-use App\Tests\dto\Support\SimpleDataNullableDefaultNullRequired;
-use App\Tests\dto\Support\SimpleDataNullableRequired;
-use App\Tests\dto\Support\SimpleDataRequired;
-use App\Tests\dto\Support\SimpleDataType;
-use App\Tests\dto\Support\SimpleDataTypeRequired;
-use App\Tests\dto\Support\SimpleDataTypeUnion;
-use App\Tests\dto\Support\SimpleDataTypeUnionRequired;
-use App\Tests\dto\Support\SimpleDataUnionNullable;
-use App\Tests\dto\Support\SimpleDataUnionNullableRequired;
+use vakazona\Dto\Attributes\Required;
+use vakazona\Dto\DTO;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Exceptions\InvalidDeclarationException;
+use vakazona\Dto\Property;
+use vakazona\Dto\Values\MissingValue;
+use vakazona\Dto\Tests\Support\SimpleData;
+use vakazona\Dto\Tests\Support\SimpleDataNullable;
+use vakazona\Dto\Tests\Support\SimpleDataNullableDefaultNull;
+use vakazona\Dto\Tests\Support\SimpleDataNullableDefaultNullRequired;
+use vakazona\Dto\Tests\Support\SimpleDataNullableRequired;
+use vakazona\Dto\Tests\Support\SimpleDataRequired;
+use vakazona\Dto\Tests\Support\SimpleDataType;
+use vakazona\Dto\Tests\Support\SimpleDataTypeRequired;
+use vakazona\Dto\Tests\Support\SimpleDataTypeUnion;
+use vakazona\Dto\Tests\Support\SimpleDataTypeUnionRequired;
+use vakazona\Dto\Tests\Support\SimpleDataUnionNullable;
+use vakazona\Dto\Tests\Support\SimpleDataUnionNullableRequired;
 
 
 class ValidationTest extends BaseTestCase

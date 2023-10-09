@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Tests\dto\Support;
+namespace vakazona\Dto\Tests\Support;
 
-use App\dto\Attributes\Required;
-use App\dto\DTO;
+use vakazona\Dto\Attributes\Required;
+use vakazona\Dto\DTO;
 
 class SimpleDataRequired extends DTO
 {

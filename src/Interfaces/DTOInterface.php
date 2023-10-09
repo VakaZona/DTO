@@ -1,6 +1,6 @@
 <?php
 
-namespace App\dto\Interfaces;
+namespace vakazona\Dto\Interfaces;
 
 interface DTOInterface
 {

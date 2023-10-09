@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Tests\dto;
+namespace vakazona\Dto\Tests;
 
-use App\dto\DTO;
-use App\dto\Exceptions\InvalidDataException;
-use App\Tests\dto\Support\Classes\TestAbstractClass;
-use App\Tests\dto\Support\Classes\TestClass;
-use App\Tests\dto\Support\Classes\TestClassExtendsAbstractClass;
-use App\Tests\dto\Support\Classes\TestClassImplementsInterface;
-use App\Tests\dto\Support\Classes\TestClassImplementsInterfaceExtends;
-use App\Tests\dto\Support\Classes\TestClassOther;
-use App\Tests\dto\Support\Classes\TestInterface;
-use PHPUnit\Framework\TestCase;
+use vakazona\Dto\DTO;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Tests\Support\Classes\TestAbstractClass;
+use vakazona\Dto\Tests\Support\Classes\TestClass;
+use vakazona\Dto\Tests\Support\Classes\TestClassExtendsAbstractClass;
+use vakazona\Dto\Tests\Support\Classes\TestClassImplementsInterface;
+use vakazona\Dto\Tests\Support\Classes\TestClassImplementsInterfaceExtends;
+use vakazona\Dto\Tests\Support\Classes\TestClassOther;
+use vakazona\Dto\Tests\Support\Classes\TestInterface;
 
 class ClassInheritanceTest extends BaseTestCase
 {

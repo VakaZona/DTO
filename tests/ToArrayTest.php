@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Tests\dto;
+namespace vakazona\Dto\Tests;
 
-use App\dto\Attributes\Flexible;
-use App\dto\DTO;
-use PHPUnit\Framework\TestCase;
+use vakazona\Dto\Attributes\Flexible;
+use vakazona\Dto\DTO;
 
 class ToArrayTest extends BaseTestCase
 {

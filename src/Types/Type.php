@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\dto\Types;
+namespace vakazona\Dto\Types;
 
 interface Type
 {

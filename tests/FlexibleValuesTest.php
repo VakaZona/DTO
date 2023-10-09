@@ -1,12 +1,11 @@
 <?php
 
-namespace  App\Tests\dto;
+namespace  vakazona\Dto\Tests;
 
-use App\dto\Attributes\Flexible;
-use App\dto\DTO;
-use App\dto\Exceptions\InvalidDataException;
-use App\Tests\dto\Support\FlexibleData;
-use PHPUnit\Framework\TestCase;
+use vakazona\Dto\Attributes\Flexible;
+use vakazona\Dto\DTO;
+use vakazona\Dto\Exceptions\InvalidDataException;
+use vakazona\Dto\Tests\Support\FlexibleData;
 
 class FlexibleValuesTest extends BaseTestCase
 {

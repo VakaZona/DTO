@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\dto\Exceptions;
+namespace vakazona\Dto\Exceptions;
 
-use App\dto\Property;
+use vakazona\Dto\Property;
 
 class InvalidDeclarationException extends \RuntimeException
 {

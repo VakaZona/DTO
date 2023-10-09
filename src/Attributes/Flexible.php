@@ -1,10 +1,10 @@
 <?php
 
-namespace App\dto\Attributes;
+namespace vakazona\Dto\Attributes;
 
 use Attribute;
 
-#[\Attribute]
+#[Attribute]
 class Flexible
 {
 }

@@ -1,7 +1,7 @@
 <?php
- namespace App\Tests\dto;
+ namespace vakazona\Dto\Tests;
 
- use App\dto\Property;
+ use vakazona\Dto\Property;
  use PHPUnit\Framework\TestCase;
 
  abstract class BaseTestCase extends TestCase
