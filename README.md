@@ -72,3 +72,7 @@ $data->toArray(); // ['name' => 'Valery', 'age' => '23'];
 ```
 vendor/bin/phpunit
 ```
+or
+```
+composer test
+```
