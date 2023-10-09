@@ -1,0 +1,25 @@
+{
+    "name": "vakazona/dto",
+    "description": "A Data Transfer Object for PHP",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Vakazona\\Dto\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vakazona\\Dto\\tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Valery Zonov",
+            "email": "valery.zonov@sibers.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^10.4"
+    }
+}
