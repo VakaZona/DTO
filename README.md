@@ -44,7 +44,7 @@ class TestDTO extends DTO
     public string $price;
 }
 
-$data = new DummyData([]);
+$data = new TestDTO([]);
 ```
 
 > Exceptions\InvalidDataException: The required property \`price\` is missing
